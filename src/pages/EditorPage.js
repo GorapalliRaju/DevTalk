@@ -4,6 +4,7 @@ import ACTIONS from '../Actions';
 import Client from '../components/Client';
 import Editor from '../components/Editor';
 import { initSocket } from '../socket';
+import ChatBox from '../components/ChatBox';
 import {
     useLocation,
     useNavigate,
@@ -18,6 +19,7 @@ const EditorPage = () => {
     const { roomId } = useParams();
     const reactNavigator = useNavigate();
     const [clients, setClients] = useState([]);
+    const [showChat, setShowChat] = useState(false);
 
     useEffect(() => {
         const init = async () => {
@@ -112,6 +114,12 @@ const EditorPage = () => {
                         ))}
                     </div>
                 </div>
+                <button
+                    className="btn chatBtn"
+                    onClick={() => setShowChat(true)}
+                >
+                    💬 Let Us Chat
+                </button>
                 <button className="btn copyBtn" onClick={copyRoomId}>
                     Copy ROOM ID
                 </button>
@@ -127,6 +135,13 @@ const EditorPage = () => {
                         codeRef.current = code;
                     }}
                 />
+                {showChat && (
+                    <ChatBox
+                        socketRef={socketRef}
+                        roomId={roomId}
+                        username={location.state?.username}
+                    />
+                )}
             </div>
         </div>
     );

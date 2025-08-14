@@ -50,6 +50,11 @@ io.on('connection', (socket) => {
         io.to(socketId).emit(ACTIONS.CODE_CHANGE, { code });
     });
 
+    // 🆕 CHAT EVENT
+    socket.on('chatMessage', ({ roomId, username, text }) => {
+        io.to(roomId).emit('chatMessage', { username, text });
+    });
+
     socket.on('disconnecting', () => {
         const rooms = [...socket.rooms];
         rooms.forEach((roomId) => {
@@ -62,6 +67,7 @@ io.on('connection', (socket) => {
         socket.leave();
     });
 });
+
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`));

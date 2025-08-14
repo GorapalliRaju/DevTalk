@@ -141,3 +141,101 @@ footer a:hover {
     line-height: 1.6;
     padding-top: 20px;
 }
+
+
+/*chat*/
+.chatBtn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    background-color: #0078ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.chatBtn:hover {
+    background-color: #005fcc;
+}
+
+.chatBox {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 250px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+}
+.messages {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 8px;
+}
+.inputArea {
+    display: flex;
+}
+.inputArea input {
+    flex: 1;
+    padding: 5px;
+}
+.inputArea button {
+    margin-left: 5px;
+}
+
+
+.chatBox {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    width: 280px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 8px;
+    max-height: 200px;
+    padding-right: 4px;
+}
+
+.message {
+    margin: 4px 0;
+    padding: 6px 10px;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.myMessage {
+    background-color: #dcf8c6; /* WhatsApp-like green */
+    align-self: flex-end;
+    text-align: right;
+}
+
+.otherMessage {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+    text-align: left;
+}
+
+.inputArea {
+    display: flex;
+    gap: 4px;
+}
+
+.inputArea input {
+    flex: 1;
+    padding: 6px;
+}
+
+.inputArea button {
+    padding: 6px 10px;
+}
